@@ -1,4 +1,4 @@
-import { Controller, Post, Get, Request, UseGuards, Body } from '@nestjs/common';
+import { Controller, Post, Get, Request, UseGuards, Body, Logger } from '@nestjs/common';
 import { UsersService } from 'src/users/users.service';
 import { AuthenticatedGuard } from './authenticated.guard';
 import { LocalAuthGuard } from './local-auth.guard';
@@ -6,12 +6,17 @@ import { User } from 'models/interfaces/User'
 
 @Controller('auth')
 export class AuthController {
-    constructor(private readonly userService: UsersService) {}
+    logger: Logger;
+    constructor(private readonly userService: UsersService) {
+        this.logger = new Logger(AuthController.name)
+    }
 
     @UseGuards(LocalAuthGuard)
     @Post('login')
     async login(@Request() req): Promise<User> {
-        return await this.userService.findById(req.user._id);
+        const user = await this.userService.findById(req.user._id)
+        this.logger.log(`${user.email} logged in`)
+        return user;
     }
 
     @UseGuards(AuthenticatedGuard)
