@@ -32,11 +32,13 @@ export class AppService {
       dateRanges: [{ startDate: '90daysAgo', endDate: 'today' }],
       dimensions: [{ name: 'fullPageUrl' }, { name: 'pageTitle' }],
       metrics: [{ name: 'engagedSessions' }],
+      limit: 4
     });
 
     report.rows.forEach(row => {
+      const basestring: string = "www.elian.codes/blog/";
       const record = {
-        type: 'page',
+        type: row.dimensionValues[0].value.substring(0, basestring.length) == basestring && row.dimensionValues[0].value.length > basestring.length ? 'article' : 'page',
         title: row.dimensionValues[1].value,
         link: row.dimensionValues[0].value,
         views: row.metricValues[0].value
