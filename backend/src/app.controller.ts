@@ -1,4 +1,4 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, Request, Response } from '@nestjs/common';
 import { AppService } from './app.service';
 
 @Controller()
@@ -13,5 +13,10 @@ export class AppController {
   @Get('health')
   checkHealth(): string {
     return this.appService.checkHealth();
+  }
+
+  @Get('analytics')
+  async getAnalytics(): Promise<any> {
+    return await this.appService.runReport();
   }
 }

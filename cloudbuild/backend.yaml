@@ -4,6 +4,9 @@ steps:
     env:
       - 'AUTH_SECRET=${_AUTH_SECRET}'
       - 'DB_STRING=${_DB_STRING}'
+      - 'GA_PROPERTY=${_GA_PROPERTY}'
+      - 'GA_EMAIL=${_GA_EMAIL}'
+      - 'GA_KEY=${_GA_KEY}'
     id: 'print .env'
     dir: backend
 
