@@ -14,9 +14,4 @@ export class AppController {
   checkHealth(): string {
     return this.appService.checkHealth();
   }
-
-  @Get('analytics')
-  async getAnalytics(): Promise<any> {
-    return await this.appService.runReport();
-  }
 }

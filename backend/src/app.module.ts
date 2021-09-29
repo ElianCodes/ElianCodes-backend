@@ -9,9 +9,10 @@ import { AuthModule } from './auth/auth.module';
 import { UsersModule } from './users/users.module';
 import { CertificationgroupsModule } from './certificationgroups/certificationgroups.module';
 import { TechnologiesModule } from './technologies/technologies.module';
+import { AnalyticsModule } from './analytics/analytics.module';
 
 @Module({
-  imports: [ProjectsModule, CertificationsModule, ConfigModule.forRoot({ isGlobal: true }), MongooseModule.forRoot(process.env.DB_STRING), AuthModule, UsersModule, CertificationgroupsModule, TechnologiesModule],
+  imports: [ProjectsModule, CertificationsModule, ConfigModule.forRoot({ isGlobal: true }), MongooseModule.forRoot(process.env.DB_STRING), AuthModule, UsersModule, CertificationgroupsModule, TechnologiesModule, AnalyticsModule],
   controllers: [AppController],
   providers: [AppService],
 })
