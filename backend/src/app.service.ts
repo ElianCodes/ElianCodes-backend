@@ -37,9 +37,20 @@ export class AppService {
 
     report.rows.forEach(row => {
       const basestring: string = "www.elian.codes/blog/";
+      const defineType = (rawType: string): string => {
+        return rawType.substring(0, basestring.length) == basestring && rawType.length > basestring.length ? 'article' : 'page'
+      }
+      const morphTitle = (rawTitle: string): string => {
+        const heading = "Elian Van Cutsem |";
+        if (rawTitle.startsWith(heading)) {
+          return rawTitle.substring(heading.length + 1)
+        }
+        return rawTitle
+      }
+
       const record = {
-        type: row.dimensionValues[0].value.substring(0, basestring.length) == basestring && row.dimensionValues[0].value.length > basestring.length ? 'article' : 'page',
-        title: row.dimensionValues[1].value,
+        type: defineType(row.dimensionValues[0].value),
+        title: morphTitle(row.dimensionValues[1].value),
         link: row.dimensionValues[0].value,
         views: row.metricValues[0].value
       }
