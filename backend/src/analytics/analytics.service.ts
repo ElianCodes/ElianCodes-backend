@@ -1,21 +1,19 @@
 import { Injectable } from '@nestjs/common';
 import { AnalyticsPage } from 'models/interfaces/AnalyticsPage';
-import { BetaAnalyticsDataClient } from '@google-analytics/data';
+import { MostVisitedPages, Credentials, Page } from '@elianvancutsem/mostvisitedpages'
 
 @Injectable()
 export class AnalyticsService {
     propertyId: string
-    analyticsDataClient: BetaAnalyticsDataClient;
-    options: any = {
-        credentials: {
+    mostVisitedPages: MostVisitedPages;
+    credentials: Credentials = {
         client_email: process.env.GA_EMAIL,
         private_key: process.env.GA_KEY
-        }
     }
-    
+
     constructor() {
         this.propertyId = process.env.GA_PROPERTY
-        this.analyticsDataClient = new BetaAnalyticsDataClient(this.options);
+        this.mostVisitedPages = new MostVisitedPages(this.credentials, this.propertyId);
     }
 
     defineTypeForPage (rawType: string): string {
@@ -32,23 +30,16 @@ export class AnalyticsService {
     }
     
     async getMostVisitedPagesForNotFound(): Promise<AnalyticsPage[]>{
-        const response: AnalyticsPage[] = [];
-        const [report] = await this.analyticsDataClient.runReport({
-            property: `properties/${this.propertyId}`,
-            dateRanges: [{ startDate: '90daysAgo', endDate: 'today' }],
-            dimensions: [{ name: 'fullPageUrl' }, { name: 'pageTitle' }],
-            metrics: [{ name: 'engagedSessions' }],
-            limit: 4
-        });
-        report.rows.forEach(row => {
-            const record: AnalyticsPage = {
-                type: this.defineTypeForPage(row.dimensionValues[0].value),
-                title: this.morphTitleForOldHeading(row.dimensionValues[1].value),
-                link: row.dimensionValues[0].value,
-                views: Number.parseInt(row.metricValues[0].value)
+        const rawPages: Page[] = await this.mostVisitedPages.getPageViews(4)
+        const result: AnalyticsPage[] = rawPages.map((page: Page) => {
+            const newPage: AnalyticsPage = {
+                type: this.defineTypeForPage(page.url),
+                title: this.morphTitleForOldHeading(page.title),
+                link: page.url,
+                views: page.views
             }
-            response.push(record)
-        });
-        return response
+            return newPage
+        })
+        return result 
     }
 }

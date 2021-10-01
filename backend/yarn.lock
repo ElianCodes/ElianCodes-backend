@@ -375,6 +375,13 @@
   dependencies:
     "@cspotcode/source-map-consumer" "0.8.0"
 
+"@elianvancutsem/mostvisitedpages@0.0.6":
+  version "0.0.6"
+  resolved "https://registry.yarnpkg.com/@elianvancutsem/mostvisitedpages/-/mostvisitedpages-0.0.6.tgz#aa7273b3cf5c9c0c82d83bb418a34c67ddf5b3ec"
+  integrity sha512-x/JpOokk/JojUo9xG8ZqoEAvUwUFpM86piI1kUaULbT7CVQFuUSevSaGL/Kf9HWf3wK7DO5RF+GHmbBzGFm3pg==
+  dependencies:
+    "@google-analytics/data" "^2.7.0"
+
 "@eslint/eslintrc@^0.4.3":
   version "0.4.3"
   resolved "https://registry.yarnpkg.com/@eslint/eslintrc/-/eslintrc-0.4.3.tgz#9e42981ef035beb3dd49add17acb96e8ff6f394c"
