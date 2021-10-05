@@ -38,7 +38,7 @@
     "@elianvancutsem/mostvisitedpages": "0.0.6",
     "@google-analytics/data": "^2.7.0",
     "@nestjs/common": "^8.0.0",
-    "@nestjs/config": "^1.0.1",
+    "@nestjs/config": "^1.0.2",
     "@nestjs/core": "^8.0.0",
     "@nestjs/mongoose": "^9.0.0",
     "@nestjs/passport": "^8.0.1",
