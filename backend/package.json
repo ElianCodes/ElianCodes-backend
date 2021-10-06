@@ -35,7 +35,7 @@
     "create-env": "printenv > .env"
   },
   "dependencies": {
-    "@elianvancutsem/mostvisitedpages": "0.0.6",
+    "@elianvancutsem/mostvisitedpages": "^0.0.7",
     "@google-analytics/data": "^2.7.0",
     "@nestjs/common": "^8.0.0",
     "@nestjs/config": "^1.0.1",
