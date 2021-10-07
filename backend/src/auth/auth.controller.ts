@@ -3,7 +3,10 @@ import { UsersService } from 'src/users/users.service';
 import { AuthenticatedGuard } from './authenticated.guard';
 import { LocalAuthGuard } from './local-auth.guard';
 import { User } from 'models/interfaces/User'
+import { UseInterceptors } from '@nestjs/common';
+import { SentryInterceptor } from '../sentry/sentry.interceptor';
 
+@UseInterceptors(SentryInterceptor)
 @Controller('auth')
 export class AuthController {
     logger: Logger;
