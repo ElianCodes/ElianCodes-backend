@@ -375,10 +375,10 @@
   dependencies:
     "@cspotcode/source-map-consumer" "0.8.0"
 
-"@elianvancutsem/mostvisitedpages@^0.0.8":
-  version "0.0.8"
-  resolved "https://registry.yarnpkg.com/@elianvancutsem/mostvisitedpages/-/mostvisitedpages-0.0.8.tgz#852ba0b9bc93be0ead746fd87e167994a6605553"
-  integrity sha512-c3w2SeySLnHSU/UNi0V4pOJ/KY3bawAmcfPKFs3sc91GmV5+6C+1N38jPKYmzJG6FRSapfXh62bEHWJFbf/Rug==
+"@elianvancutsem/mostvisitedpages@^0.0.9":
+  version "0.0.9"
+  resolved "https://registry.yarnpkg.com/@elianvancutsem/mostvisitedpages/-/mostvisitedpages-0.0.9.tgz#c9a3ab20f61b37429e9aa3eee7108eed7a34f14b"
+  integrity sha512-G4ONUgCFz2MG+4JfVGox/a3zBnD63WyQ1wAbDaZQErc1HpDLH+2vGIWF79csPWlgCl7x6pXGBtvi6CVo0bJC0Q==
   dependencies:
     "@google-analytics/data" "^2.7.0"
 
