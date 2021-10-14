@@ -37,7 +37,7 @@
   "dependencies": {
     "@elianvancutsem/mostvisitedpages": "^0.0.9",
     "@google-analytics/data": "^2.7.0",
-    "@nestjs/common": "^8.0.0",
+    "@nestjs/common": "^8.1.0",
     "@nestjs/config": "^1.0.1",
     "@nestjs/core": "^8.0.0",
     "@nestjs/mongoose": "^9.0.0",
