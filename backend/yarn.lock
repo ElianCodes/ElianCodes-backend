@@ -376,10 +376,10 @@
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
-"@google-analytics/data@^2.7.0":
-  version "2.7.0"
-  resolved "https://registry.yarnpkg.com/@google-analytics/data/-/data-2.7.0.tgz#060c4ee9ab689fec7dc927d29f8f0e7484687545"
-  integrity sha512-CmJo+ybTGQbNOzsbbIq2jec2c8MPgTy4/T9Owy0NI5lxz7mroXAbM4zS4NLhx2rEwkIzVBwX73ip56hvidoUYw==
+"@google-analytics/data@^2.7.0", "@google-analytics/data@^2.8.0":
+  version "2.8.0"
+  resolved "https://registry.yarnpkg.com/@google-analytics/data/-/data-2.8.0.tgz#ebe73e92179ae85cd48be4990720aa802dd9eb59"
+  integrity sha512-4o7K3O+H1W36Q01BitmrLaV+BUIw+WBXGCSmgeqcRyMb2MjJfsnFY/FeKtkwFItAZrVbV5G6EqJyniNfUWzmLA==
   dependencies:
     google-gax "^2.24.1"
 
