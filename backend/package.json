@@ -45,7 +45,7 @@
     "@nestjs/platform-express": "^8.0.0",
     "@sentry/node": "^6.13.3",
     "bcrypt": "^5.0.1",
-    "dotenv": "^10.0.0",
+    "dotenv": "^14.3.0",
     "express-session": "^1.17.2",
     "mongoose": "6.0.13",
     "passport": "^0.4.1",
